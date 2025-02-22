@@ -12,7 +12,7 @@ import Testimonials from "./components/testimonials/Testimonials";
 import FeaturedProgram from "./components/FeaturedProgram/FeaturedProgram";
 import Footer from "./components/footer/Footer";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import Colleges from "./components/colleges/colleges";
+import Colleges from "./components/colleges/Colleges";
 import AppointmentForm from "./components/Appointment/appointment-form";
 // import EmblaCarousel from "./components/EmblaCarousel/EmblaCarousel";
 
