@@ -1,0 +1,34 @@
+.course-category__card {
+    /* border: 1px solid #ababab; */
+    border-radius: 8px; /* Optional: rounds the edges */
+    padding: 20px; /* Ensures consistent padding inside the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Makes all cards uniform in height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* background-color: #e1c5f8; */
+    background-color: #dccefb;
+  }
+  
+  .course-category__card__icon-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px; /* Reduces space between the image and title */
+  }
+  
+  .course-category__card__title {
+    font-size: 1.2rem;
+    margin: 40px 0 5px; /* Adds space between the title and description */
+    text-align: center; /* Centers the title */
+  }
+  
+  .crs-txt {
+    font-size: 0.9rem;
+    text-align: center; /* Adjust text alignment */
+    margin-bottom: 0; /* Prevents the description from touching the bottom */
+  }
+  
+  .course-category__card__content {
+    padding: 10px 0; /* Adds space within the content area */
+  }

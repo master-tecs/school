@@ -1,0 +1,62 @@
+// pages/api/recommend.js
+import OpenAI from "openai";
+
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY || '',
+});
+
+
+export async function POST(req, res) {
+    
+  console.log(process.env.OPENAI_API_KEY, '<===process.env.OPENAI_API_KEY');
+
+  const {
+    preferredCountries,
+    highestEducation,
+    fieldOfStudy,
+    gpa,
+    standardizedTests,
+    intendedLevel,
+    desiredIntake,
+  } = await req.json();
+
+//   console.log(await req.json(), '<===req.body');
+  console.log({preferredCountries})
+
+  // Validation
+  if (!preferredCountries || !highestEducation || !intendedLevel) {
+    return new Response('Missing required fields', { status: 400 });
+  }
+
+  try {
+    const prompt = `
+      Based on the following details, recommend suitable schools and programs:
+      - Preferred Countries: ${preferredCountries}
+      - Highest Education Level: ${highestEducation}
+      - Field of Study: ${fieldOfStudy || 'N/A'}
+      - GPA: ${gpa || 'N/A'}
+      - Standardized Tests: ${standardizedTests || 'N/A'}
+      - Intended Level of Study: ${intendedLevel}
+      - Desired Intake: ${desiredIntake}
+
+      Provide the response in JSON format with fields for schoolName and program.
+    `;
+    
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
+    });
+    console.log(completion.data.choices, 'completion.data.choices');
+    const recommendations = JSON.parse(completion.data.choices[0].message.content);
+
+    return new Response(JSON.stringify({ recommendations }), {
+        status: 200,
+    })
+  } catch (error) {
+    console.error('Error generating recommendations: **********************************************************************************', error);
+    return new Response('Error generating recommendations', { status: 500 });
+  }
+}
+

@@ -1,0 +1,12 @@
+POST http://localhost:3000/api/recommend
+Content-Type: application/json
+
+{
+  "countries": "Canada",
+  "educationLevel": "Bachelor",
+  "fieldOfStudy": "Computer Science",
+  "gpa": "3.8",
+  "standardizedTests": "IELTS: 7.5",
+  "intendedStudyLevel": "Undergraduate",
+  "desiredIntake": "Fall 2025"
+}

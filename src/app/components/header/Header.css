@@ -1,0 +1,23 @@
+.sc-product-offcanvas-area {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sc-product-offcanvas-area.expanded {
+    transform: translateX(0);
+  }
+  
+  .sc-overlay-bg2 {
+    display: none;
+  }
+  
+  .sc-overlay-bg2.active {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
